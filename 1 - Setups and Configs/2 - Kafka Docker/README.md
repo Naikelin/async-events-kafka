@@ -72,7 +72,7 @@ services:
   kafka2:
     image: 'bitnami/kafka:latest'
     ports:
-      - '9092:9092'
+      - '9093:9092'
     environment:
       - KAFKA_BROKER_ID=2
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
@@ -82,7 +82,7 @@ services:
   kafka3:
     image: 'bitnami/kafka:latest'
     ports:
-      - '9092:9092'
+      - '9094:9092'
     environment:
       - KAFKA_BROKER_ID=3
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
@@ -90,6 +90,20 @@ services:
     depends_on:
       - zookeeper
 ```
+
+## Execute commands
+
+```
+docker exec -it <container-id> bash
+```
+
+or
+
+```
+docker-compose exec kafka1 bash
+```
+
+Inside of the container, need to search */opt/bitnami/kafka/bin* path. Contains scripts.
 
 ### Topic replicated
 
@@ -102,5 +116,5 @@ kafka-topics.sh --create --bootstrap-server localhost:9092 --topic mytopic --par
 #### Topic
 
 - ID -> id of the topic
-- Number of *Partitions* -> Fragments that divide the topic, across the brokers. If we have 3 brokers, could only use 3 partitions.
-- Replication *Factor* -> Replications of *Partitions* across the brokers. (*Note: Use 3 in production*)
+- Number of *Partitions* -> Fragments that divide the topic, across the brokers. (unit of parallelism )
+- Replication *Factor* -> Replications of *Partitions* across the brokers. (*Note: Use min. 3 in production*)
