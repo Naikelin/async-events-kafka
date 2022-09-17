@@ -10,6 +10,8 @@ services:
     image: 'bitnami/kafka:latest'
     ports:
       - '9092:9092'
+    expose:
+      - '9092'
     environment:
       - KAFKA_BROKER_ID=1
       - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
