@@ -40,7 +40,7 @@ docker run  --interactive \
             --network 2-kafkadocker_default \
             confluentinc/cp-kafkacat \
             kafkacat -P -b kafka1:9092 \
-                    -t t1 \
+                    -t mytopic \
                     -p 0 -K:
 ```
 
