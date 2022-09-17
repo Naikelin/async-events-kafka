@@ -1,2 +1,3 @@
 # kafka-workshop
-Workshop working with kafka
+
+Workshop working with Apache-Kafka and Go.
