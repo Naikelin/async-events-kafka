@@ -102,8 +102,9 @@ kafka-topics.sh --create --bootstrap-server localhost:9092 --topic mytopic --par
 
 ### Cheatsheet
 
-#### Topic:
+#### Topic
+
 **Configs**:
-    - ID -> id of the topic
-    - Number of *Partitions* -> Fragments that divide the topic, across the brokers. If we have 3 brokers, could only use 3 partitions.
-    - Replication *Factor* -> Replications of *Partitions* across the brokers. (*Note: Use 3 in production*)
+- ID -> id of the topic
+- Number of *Partitions* -> Fragments that divide the topic, across the brokers. If we have 3 brokers, could only use 3 partitions.
+- Replication *Factor* -> Replications of *Partitions* across the brokers. (*Note: Use 3 in production*)
