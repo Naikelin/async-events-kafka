@@ -11,14 +11,14 @@ https://hub.docker.com/r/bitnami/kafka
 - Launch Zookeeper
     ```
     docker run -d --name zookeeper-server \
-    --network app-tier \
+    --network kafka-test \
     -e ALLOW_ANONYMOUS_LOGIN=yes \
     bitnami/zookeeper:latest
     ```
 - Launch Kafka
     ```
     docker run -d --name kafka-server \
-        --network app-tier \
+        --network kafka-test \
         -e ALLOW_PLAINTEXT_LISTENER=yes \
         -e KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper-server:2181 \
         bitnami/kafka:latest
@@ -43,9 +43,6 @@ services:
       - '9092:9092'
     environment:
       - KAFKA_BROKER_ID=1
-      - KAFKA_CFG_LISTENERS=PLAINTEXT://:9092
-      - KAFKA_CFG_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9092
-      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
       - ALLOW_PLAINTEXT_LISTENER=yes
     depends_on:
       - zookeeper
@@ -104,7 +101,12 @@ kafka-topics.sh --create --bootstrap-server localhost:9092 --topic mytopic --par
 
 #### Topic
 
-**Configs**:
 - ID -> id of the topic
 - Number of *Partitions* -> Fragments that divide the topic, across the brokers. If we have 3 brokers, could only use 3 partitions.
 - Replication *Factor* -> Replications of *Partitions* across the brokers. (*Note: Use 3 in production*)
+
+
+- First item
+- Second item
+- Third item
+- Fourth item 
