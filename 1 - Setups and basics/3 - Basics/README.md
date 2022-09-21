@@ -39,7 +39,7 @@ kafka-console-consumer.sh --bootstrap-server :9092 --topic mytopic --consumer-pr
 docker run  --interactive \
             --network 2-kafkadocker_default \
             confluentinc/cp-kafkacat \
-            kafkacat -P -b kafka1:9092 \
+            kafkacat -P -b kafka1:9092 \ 
                     -t mytopic \
                     -p 0 -K:
 ```
