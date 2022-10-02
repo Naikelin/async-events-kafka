@@ -66,4 +66,6 @@ func main() {
 		time.Sleep(time.Second * 10)
 		printSlice(s)
 	}
+
+	//<-c
 }
